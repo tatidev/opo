@@ -1,0 +1,375 @@
+body {
+  font-family: 'Karla', sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-size: 90%;
+}
+
+#temp_url {
+  font-size: 12px;
+  list-style: none;
+}
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+i:hover {
+	cursor: pointer;
+}
+
+i, .btn {
+  cursor: pointer;
+}
+
+thead {
+  font-weight: bold;
+}
+
+.hover-pointer {
+  cursor: pointer;
+}
+
+.hide {
+  display:none!important;
+}
+
+.the-background-color {
+  background: rgba(247, 248, 250, 0.55);
+}
+
+
+  
+nav {
+  margin:auto!important;
+  /*max-width: 1000px!important;*/
+}
+
+#nav-header {
+  
+}
+
+#nav-content {
+  flex: 1 0 auto;
+}
+
+#nav-foot {
+  flex: 0 0 auto;
+  border-top: 1px solid #dddddd;
+}
+
+.btn-action {
+  color: blue;
+}
+
+.btn-action:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-right: 8px!important;
+    padding-left: 8px!important;
+  }
+}
+
+.input_search.form-control{
+  border-radius: 4px;
+  color: black;
+  background-color: transparent!important;
+  border: none!important;
+  font-size: 3rem!important;
+	height: 100%;
+  text-align: left!important;
+}
+
+.easy-autocomplete input {
+	box-shadow: none;
+}
+
+.popover {
+  max-width: 500px;
+}
+
+ul.flex-c-50 > li {
+  width: 50%;
+}
+
+.rs-icon {
+  opacity: 0.1;
+}
+
+.rs-active {
+  opacity: 1;
+  color: #ab2865;
+}
+
+i.big-piece-off {
+	opacity: 0.3!important;
+}
+
+i.big-piece-on {
+	opacity: 1!important;
+	color: #ccb820!important;
+}
+
+  .btnAddToList {
+    cursor: pointer;
+  }
+  .btnItemDelete {
+    cursor: pointer;
+  }
+.fa-toggle-on {
+    cursor:pointer;
+    color: green;
+}
+.fa-toggle-off {
+    cursor:pointer;
+    color: black;
+}
+
+.btn-group-active {
+  background-color: #007bff6b;
+  border-color: #007bff6b;
+}
+
+.form-group.row > label, .form-group.row > .flex > label, .col-form-label {
+	/*
+    font-size: 13px;
+	*/
+}
+  
+.btn-toggler, .form-control, .multiselect {
+  /*
+    padding-top: .15rem!important;
+    padding-bottom: .15rem!important;
+	*/
+}
+
+.list-unstyled {
+  font-size: 12px;
+	list-style: none;
+}
+
+ul.content-list > li {
+  border-bottom: 2px solid #e9ecef;
+  line-height: 23px;
+}
+
+.no-border {
+  border: none!important;
+}
+
+.btnBack {
+  color: #17a2b8!important;
+}
+
+.btnBack:hover {
+  color:white!important;
+}
+
+.btnSave, .btnClose {
+  color:white!important;
+}
+
+.btnNew {
+  
+}
+
+.menu-item:hover, .menu-item-sub:hover, .btnBack:hover {
+  cursor: pointer;
+}
+
+.required-field {
+  border: 1px solid red;
+}
+
+.form-group {
+  align-items: center;
+}
+
+.row-discontinued {
+  color: #ff0000 !important;
+}
+
+.row-mso {
+  color: #ff00ff !important;
+}
+
+.row-deleted {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+.img-thumbnail-container{
+	width: 50px;
+	height:50px;
+	overflow:hidden;
+}
+
+.img-thumbnail-container > a {
+	cursor: pointer;
+}
+
+span.is_30under {
+  font-weight: bold;
+  font-size: 0.8em;
+  color: #bfac02;
+}
+span.is_digitalground {
+  font-weight: bold;
+  font-size: 0.8em;
+  color:#ff12ed;
+}
+span.is_fabricseen {
+  font-weight: bold;
+  font-size: 0.8em;
+  color:#ffad16;
+}
+span.is_mpl {
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #000bff;
+}
+
+	.grey-background {
+		background: rgb(233, 236, 239)!important;
+	}
+
+.tooltip {
+	z-index: 9999 !important;
+}
+
+.btnPrintMemotags {
+	font-size: 12px;
+}
+
+.btnPrintMemotags:hover {
+	color:white!important;
+}
+
+div.dataTables_scrollBody thead {           
+    visibility: collapse;
+}
+
+.eac-item i.fa-book {
+    color: #bfac02;
+}
+
+.easy-autocomplete-container ul li, .easy-autocomplete-container ul .eac-category {
+	font-size: 17px;
+}
+
+.required {
+	color:red;
+}
+
+.font-title {
+  font-size: 30px!important;
+}
+
+span[data-toggle='tooltip'] {
+    text-decoration: overline;
+    text-decoration-style: dashed;
+    text-decoration-color: red;
+}
+
+.form-control:disabled {
+    /*Fixes some weird checkbox on disabled checkboxes*/
+    opacity: 0 !important;
+}
+
+/* Ensure readonly form controls are visible (for disabled price/cost fields) */
+.form-control[readonly] {
+    opacity: 1 !important;
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.card {
+    margin: 10px 20px;
+    width: 19rem;
+}
+
+.card-img-container, .carousel-item {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+span.card-product-name {
+    white-space: nowrap;
+    margin: 1%;
+    font-size: 12px;
+}
+
+.pagebreak {
+    page-break-after: always;
+}
+/** Portfolio pagination scroll code */
+@media screen and (max-width: 768px) {
+  .float-right.pagination {
+    overflow: auto;
+    max-width: 100%;
+    float: left !important;
+  } 
+}
+
+/* Exportable Toggle Switch Styles */
+.exportable-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.exportable-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.exportable-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .3s;
+  border-radius: 24px;
+}
+
+.exportable-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+.exportable-switch input:checked + .exportable-slider {
+  background-color: #28a745;
+}
+
+.exportable-switch input:focus + .exportable-slider {
+  box-shadow: 0 0 1px #28a745;
+}
+
+.exportable-switch input:checked + .exportable-slider:before {
+  transform: translateX(20px);
+}
+
+.exportable-switch input:disabled + .exportable-slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,12 @@
+.swal-modal .success-swal-center {
+  background:transparent!important;
+}
+
+.success-swal-center > div > div.swal-icon--success__hide-corners {
+  background:transparent!important;
+}
+
+.success-swal-center > .swal-icon--success:after, 
+.success-swal-center > .swal-icon--success:before {
+  background:transparent!important;
+}

@@ -1,0 +1,68 @@
+@page {
+  margin:0.5cm
+}
+
+#filters {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+html {
+  margin:0 6cm
+}
+
+body {
+  width: 650px;
+  margin: auto;
+}
+
+.body {
+    font-family: Arial;
+    font-size: 10pt;
+/*     margin-top: 5.3cm; */
+    margin-top: 6.2cm;
+    /*margin-right: 3.45cm;*/
+    /*page-break-after: always;*/
+}
+
+dt {
+    font-weight: 300;
+}
+
+@media print {
+  .do-not-print {
+    display: none!important;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.img-container {
+  text-align:center;
+    /*margin-top: 55px;*/
+    max-height: 260px; /* Max-height of the physical label */
+    max-width: 420px; /* Max width of the physical label */
+    overflow: hidden; /* Image will be cropped if exceed the width/height values */
+}
+.img-container > img {
+  width: 100%;
+}
+
+	.b {
+/* 		white-space: nowrap; */
+    display: inline-block;
+	}
+	
+	.b-small {
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 12px;
+    text-transform: uppercase;
+	}
+
+i.fa.btnToggleView.pull-right.fa-toggle-on {
+    color: green;
+}

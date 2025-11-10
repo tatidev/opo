@@ -1,0 +1,30 @@
+div#frmUploadNewPicture {
+    background-color: #e9ecef;
+    padding: 20px 10px;
+    margin: 10px 0;
+    border-radius: .25rem;
+}
+
+.inactive-icon {
+    position: absolute;
+    font-size: 30px;
+    margin: 10px;
+    color: red;
+}
+
+span.portfolio-box-title {
+    font-size: 16px;
+    color: #28a745;
+}
+
+.oz-color {
+    color: #bfac02 !important;
+}
+
+.oz-btn {
+    font-weight: bold;
+}
+
+.tip-project-notes {
+    max-width: 300px;
+}

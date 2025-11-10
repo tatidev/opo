@@ -1,0 +1,24 @@
+SELECT V.name AS VENDOR, 
+P.name, 
+GROUP_CONCAT(DISTINCT C.name ORDER BY IC.n_order) AS COLOR, 
+COALESCE(SUM( DISTINCT SAPB.yardsInStock ), '-') as yardsInStock, 
+SP.visible, 
+SP.pic_big, 
+SP.pic_big_url FROM `Q_LIST_ITEMS` JOIN T_ITEM I ON I.product_type = 'R' AND Q_LIST_ITEMS.item_id = I.id
+JOIN T_ITEM_COLOR IC ON I.id = IC.item_id
+JOIN P_COLOR C ON IC.color_id = C.id
+JOIN T_PRODUCT P ON I.product_id = P.id
+LEFT OUTER JOIN SHOWCASE_PRODUCT SP ON P.id = SP.product_id
+JOIN T_PRODUCT_VENDOR PV ON P.id = PV.product_id
+JOIN Z_VENDOR V ON PV.vendor_id = V.id
+
+LEFT OUTER JOIN opuzen_prod_sales.op_products SAP on I.id = SAP.master_item_id
+LEFT OUTER JOIN opuzen_prod_sales.op_products_bolts SAPB ON SAP.id = SAPB.idProduct
+
+WHERE
+Q_LIST_ITEMS.list_id IN (261, 238, 259)
+AND I.status_id NOT IN (3, 18)
+AND ( SP.visible IS NULL OR SP.pic_big = 'N' OR (SP.pic_big IS NULL AND SP.pic_big_url IS NULL) )
+
+GROUP BY I.id
+ORDER BY V.name, P.name

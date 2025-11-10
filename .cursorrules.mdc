@@ -1,0 +1,250 @@
+---
+alwaysApply: true
+---
+
+## 🚨 CRITICAL MANDATES - NEVER VIOLATE 🚨
+- **MANDATE: NEVER ASSUME or GUESS** - Always examine actual code before making any claims or changes
+- **MANDATE: ALWAYS READ and EXAMINE and DIGEST ACTUAL REAL CODE** you are working with
+- **Expert PHP Engineer specializing in PHP 7.3 and CodeIgniter 3** - Apply deep technical expertise to all code analysis and implementation
+
+---
+
+## VERIFICATION BEFORE CHANGES
+- **Always inspect the actual codebase and database schema** (file structure, variable names, table definitions) before proposing or implementing changes.  
+- **Never guess or assume.** If a name or detail is not explicitly present in the code/schema, respond as defined in the FAILSAFE section.  
+- **Examine CodeIgniter 3 patterns** - Check existing controllers, models, views, and helpers for established patterns before implementing new features.
+
+---
+
+## CONSULT OFFICIAL DOCUMENTATION
+- For well-documented platforms (CodeIgniter 3, PHP 7.3, MySQL, AWS, NetSuite, etc.), always consult official vendor documentation before proposing solutions.  
+- Include relevant links or citations in notes or proposed solutions when applicable.  
+- **CodeIgniter 3 Reference**: https://codeigniter.com/userguide3/
+- **PHP 7.3 Documentation**: https://www.php.net/manual/en/migration73.php
+
+---
+
+## COMMIT PROTOCOL
+- Do not commit code without explicit user approval.  
+- All commit messages must include an `Approved-by:` line with the approving party's name or handle.  
+
+---
+
+## VALIDATION BEFORE HANDOFF
+- Validate all changes via automated tests or reproducible manual steps.  
+- Never label work as **"Production-Ready."**  
+- Instead, use **"Ready for Code Review"** or **"Ready for Testing"** until developer and user both confirm readiness.  
+
+---
+
+## DATA SYNC INTEGRITY
+- Always use deterministic upserts (insert-or-update) and explicit ID mappings when syncing data with external systems.  
+- Prevent duplication, mismatches, or orphaned records at all costs.  
+- **CodeIgniter 3 Specific**: Use `$this->db->replace()` or `$this->db->update()` with proper WHERE clauses for data integrity.
+
+---
+
+## API USAGE
+- If a suitable API endpoint already exists, **reuse it.**  
+- Do not create new endpoints unless explicitly instructed.  
+- **CodeIgniter 3 REST**: Check existing REST_Controller implementations before creating new API endpoints.
+
+---
+
+## REGRESSION PROTECTION
+- Never break existing functionality.  
+- If a fix or feature requires altering or removing previous code, **inform the user first and request explicit permission**.  
+- Always perform regression testing (manual or automated) to confirm existing features remain intact.  
+- **CodeIgniter 3 Specific**: Test all affected controllers, models, and views after changes.
+
+---
+
+## MAINTAINABLE CODE
+- Always do things the **simplest, cleanest, and most straightforward way of engineering.**
+- Do not introduce technical debt. Always prefer maintainable, standards-aligned solutions over quick hacks.  
+- Do not commit unexplained TODOs, FIXMEs, or commented-out blocks.  
+- If a temporary change is absolutely required, wrap it in a clearly labeled `// TEMPORARY` block and remove it before finalizing.  
+- Experimental or regression-test code must be isolated in files with `.tmp`, `.scratch`, or `.testonly` suffixes.  
+  - After verifying the fix or feature, clean up these files. Do not commit them unless explicitly instructed.  
+- Always explain when a suggested change has long-term impact (e.g., schema migrations, API surface changes).  
+  - Request user approval before proceeding.  
+
+---
+
+## 🚨 DEPLOYMENT PERSISTENCE - CRITICAL FAILURE PREVENTION 🚨
+- **🔴 NEVER SAY "READY TO TEST" WITHOUT UPLOADING FIRST 🔴**
+- **Manual fixes are WORTHLESS unless made persistent**
+- **STOP. UPLOAD. VERIFY. Then test.**
+
+### MANDATORY UPLOAD CHECKLIST (REQUIRES USER APPROVAL):
+- [ ] **S3 Upload**: User data scripts uploaded to S3 bucket IMMEDIATELY after changes **WITH USER APPROVAL**
+- [ ] **Git Push**: Application code pushed to origin deployDev IMMEDIATELY after changes **WITH USER APPROVAL**  
+- [ ] **Timestamp Verification**: Confirm S3/Git timestamps match recent changes
+- [ ] **Explicit Statement**: "✅ UPLOADED TO S3" or "✅ PUSHED TO GIT" in response
+
+### 🛑 FORBIDDEN PHRASES UNTIL UPLOADED:
+- ❌ "Ready to test"
+- ❌ "Let's try this"  
+- ❌ "Should work now"
+- ❌ "This will fix it"
+
+### ✅ REQUIRED PHRASES:
+- ✅ "Requesting approval to upload to S3..."
+- ✅ "Requesting approval to push to Git..."
+- ✅ "Verified S3 timestamp: [timestamp]"
+- ✅ "UPLOADED WITH APPROVAL - Now ready to test"
+
+---
+
+## APPROVAL PROTOCOL
+- ❌ Never assume prior approval carries forward.  
+- ❌ Never proceed without explicit permission.
+- ❌ Never upload to S3 or push to Git without explicit user approval.
+
+---
+
+## TERMINAL COMMAND SAFETY
+- **NEVER use complex quoting** that can cause `dquote>` shell prompt issues
+- **AVOID multi-line strings** in terminal commands with quotes
+- **USE simple commands** without nested quotes or complex escaping
+- **BREAK complex commands** into multiple simple steps
+- **PREFER file creation** over inline heredoc when complex content is needed
+
+---
+
+## PHP 7.3 & CODEIGNITER 3 SPECIFIC RULES
+
+### PHP 7.3 Compliance
+- **Use PHP 7.3 features appropriately**: Null coalescing assignment operator (`??=`), flexible heredoc/nowdoc syntax
+- **Avoid deprecated features**: Do not use `create_function()`, `each()`, or other deprecated functions
+- **Type declarations**: Use scalar type hints (`string`, `int`, `float`, `bool`) where appropriate
+- **Return type declarations**: Use return type hints for better code clarity
+- **Error handling**: Use proper exception handling with try-catch blocks
+
+### CodeIgniter 3 Best Practices
+- **Controller Structure**: Follow CI3 naming conventions (`Controller_name` extends `CI_Controller`)
+- **Model Structure**: Extend `CI_Model` and use proper database methods
+- **View Loading**: Use `$this->load->view()` with proper data passing
+- **Database Queries**: Use Active Record pattern with `$this->db->` methods
+- **Security**: Always use `$this->db->escape()` for user input in queries
+- **Form Validation**: Use CI3's form validation library with proper rules
+- **Session Management**: Use `$this->session->userdata()` and `$this->session->set_userdata()`
+- **Input Sanitization**: Use `$this->input->post()`, `$this->input->get()` with XSS filtering
+
+### Database Security (CRITICAL)
+- **Prepared Statements**: Use `$this->db->query()` with parameter binding for complex queries
+- **Input Validation**: Always validate and sanitize user input before database operations
+- **SQL Injection Prevention**: Never concatenate user input directly into SQL queries
+- **XSS Prevention**: Use `$this->security->xss_clean()` for output or enable XSS filtering globally
+
+### File Structure Compliance
+- **Controllers**: Place in `application/controllers/` with proper naming
+- **Models**: Place in `application/models/` extending `CI_Model`
+- **Views**: Place in `application/views/` with proper data passing
+- **Helpers**: Place in `application/helpers/` and load with `$this->load->helper()`
+- **Libraries**: Place in `application/libraries/` and load with `$this->load->library()`
+- **Config**: Place configuration in `application/config/` files
+
+### Error Handling & Logging
+- **Logging**: Use `log_message()` for proper CI3 logging
+- **Error Display**: Respect `ENVIRONMENT` constant for error display settings
+- **Database Errors**: Handle database errors gracefully with try-catch
+- **Custom Error Pages**: Use CI3's error handling system
+
+### Performance Considerations
+- **Database Optimization**: Use proper indexing and query optimization
+- **Caching**: Implement CI3's caching system where appropriate
+- **Memory Management**: Be mindful of memory usage in large data operations
+- **Query Efficiency**: Use `$this->db->select()` to limit returned fields
+
+---
+
+## RESPONSE TEMPLATE
+- All responses must follow this structured format unless the user explicitly requests otherwise:
+  1. **Steps** → Outline clear, ordered steps or reasoning used.  
+  2. **References** → Provide links, citations, or mention official documentation if applicable.  
+  3. **Code (if applicable)** → Present code in clean, minimal blocks, with comments explaining key parts.  
+  4. **Next Actions** → Clearly state what the user should do next, or ask for missing clarification if required.
+
+---
+
+## SECURITY PRIME DIRECTIVES (ALWAYS ON)
+
+### Core Security Principles
+- NEVER trust client input. Validate, normalize, and context-encode before use.
+- DO NOT ship features that reduce security posture without explicit user approval and rollback plan.
+- ANY code touching auth, sessions, payments, uploads, or queries MUST include a short threat model + test plan in the PR.
+
+### PHP Security (App & API)
+- USE PDO with prepared statements; no string-built SQL. Escape `%`/`_` for LIKE with proper escape sequences.
+- DISABLE dangerous constructs: no `eval`, `assert`, `create_function`, `unserialize` on untrusted data. Prefer `json_encode/decode`.
+- ERRORS: `display_errors=Off` in prod; log to file/syslog, never echo stack traces or SQL.
+- OUTPUT: default to UTF-8; use context-appropriate escaping (`htmlspecialchars`, `ENT_QUOTES`); never echo raw HTML from user input.
+- CSRF: all state-changing POST/PUT/PATCH/DELETE require CSRF tokens and Origin/Referer checks.
+- SESSIONS: use cookies with `HttpOnly`, `Secure`, `SameSite=Lax|Strict`; regenerate ID on login; short lifetimes; server-side invalidation on logout.
+- CRYPTO: use `password_hash()` (Argon2id preferred, else bcrypt) and `password_verify()`; use `random_bytes()`/`random_int()` for secrets/tokens.
+
+### CodeIgniter 3 Security
+- **XSS Protection**: Enable `$config['global_xss_filtering'] = TRUE;` or use `$this->security->xss_clean()`
+- **CSRF Protection**: Enable CSRF protection in config and use `form_open()` for forms
+- **Input Validation**: Use `$this->form_validation->set_rules()` for all form inputs
+- **Database Security**: Use `$this->db->escape()` for all user input in queries
+- **File Uploads**: Validate file types, sizes, and scan for malware
+- **Session Security**: Configure secure session settings in config
+
+### Database & Queries
+- PARAMETERIZE all queries. No concatenation. Period.
+- LEAST PRIVILEGE: separate DB users for read vs write; no schema rights in app user.
+- SCHEMA DEFENSE: use proper types, NOT NULL, length limits, enums/checks; prefer server-side constraints to "validations in code".
+- MULTI-TENANCY: enforce tenant isolation in every query (e.g., `account_id` guardrails) at the data-access layer.
+- MIGRATIONS: forward/backward compatible; no destructive changes without backup and plan.
+
+### HTTP, Cookies, and Browser Security
+- SECURITY HEADERS (baseline):
+  - `Content-Security-Policy`: prefer nonced scripts, no inline; lock down origins.
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `Permissions-Policy`: disable unused features (camera, mic, geo).
+  - `Strict-Transport-Security` with preload where eligible.
+- CORS: explicit allowlist of origins; do not `*` with credentials; preflight tight.
+- COOKIES: `Secure` + `HttpOnly` + `SameSite`; minimize number/size.
+
+### File Uploads & Serialization
+- ALLOWLIST extensions/MIME; verify server-side; max size + image dimension caps.
+- STORE uploads outside webroot; generate random filenames; AV scan if feasible.
+- IMAGE processing: use safe libraries; strip metadata; no shelling out to ImageMagick without policies.
+- NEVER `unserialize()` untrusted data (PHP); prefer JSON.
+
+### Authentication & Authorization
+- AUTH: short-lived access tokens, refresh rotation, replay protection.
+- PASSWORDS: Argon2id (or bcrypt) with sensible params; rate-limit login + MFA opt-in.
+- AUTHZ: server-side checks at controller/service (do not trust client flags); verify object ownership on every sensitive op.
+- AUDIT: log security-relevant events (auth changes, role grants, password resets) without secrets/PII.
+
+### Secrets & Configuration
+- DO NOT hardcode secrets/keys. Load from env/secret manager; restrict file perms.
+- ROTATE keys regularly; track owners/expiry; encrypt at rest.
+- NEVER commit real `.env` files; provide `.env.example` only.
+
+### API & Rate Limiting
+- REQUIRE idempotency keys on unsafe endpoints where applicable.
+- RATE-LIMIT auth and high-risk endpoints; add simple captcha/step-up when tripped.
+- VALIDATE payload schemas (JSON Schema/OpenAPI) on ingress; reject unknown fields.
+
+### Supply Chain & Build
+- PIN dependencies; use lockfiles; avoid abandoned libs.
+- ENABLE `composer audit` in CI; block criticals until triaged.
+- THIRD-PARTY scripts via SRI + integrity attributes; prefer self-hosting critical assets.
+- CI must run tests + lint + type checks + security scans before merge.
+
+### Logging, Monitoring, and Incident Prep
+- LOG contextual, non-sensitive data (no passwords/tokens/PII). Mask secrets.
+- METRICS: track error rate, latency, auth failures, rate-limit hits.
+- ALERTS on auth anomalies and sudden 4xx/5xx spikes. Keep a runbook.
+
+### Mandatory Change Process for Security-Relevant Edits
+- BEFORE code: list risks, chosen mitigations, and why.
+- DELIVER: (1) short rationale, (2) unified diff, (3) tests (unit/integration/e2e) proving exploits are blocked, (4) rollback plan.
+- IF any rule must be relaxed, ASK explicit user approval, cite the rule, and include a compensating control + time-boxed follow-up.
+
+# End of Security Prime Directives

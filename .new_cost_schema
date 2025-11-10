@@ -1,0 +1,27 @@
+--
+
+INSERT INTO T_PRODUCT_PRICE_COST (product_id, price_type, cost_type, amount)
+SELECT product_id, cost_cut_type_id, 1, cost_cut
+FROM T_PRODUCT_PRICE_COST_COPY
+WHERE cost_cut IS NOT NULL;
+
+INSERT INTO T_PRODUCT_PRICE_COST (product_id, price_type, cost_type, amount)
+SELECT product_id, cost_roll_type_id, 2, cost_roll
+FROM T_PRODUCT_PRICE_COST_COPY
+WHERE cost_roll IS NOT NULL;
+
+INSERT INTO T_PRODUCT_PRICE_COST (product_id, price_type, cost_type, amount)
+SELECT product_id, cost_half_roll_type_id, 3, cost_half_roll
+FROM T_PRODUCT_PRICE_COST_COPY
+WHERE cost_half_roll IS NOT NULL;
+
+INSERT INTO T_PRODUCT_PRICE_COST (product_id, price_type, cost_type, amount)
+SELECT product_id, cost_roll_landed_type_id, 4, cost_roll_landed
+FROM T_PRODUCT_PRICE_COST_COPY
+WHERE cost_roll_landed IS NOT NULL;
+
+INSERT INTO T_PRODUCT_PRICE_COST (product_id, price_type, cost_type, amount)
+SELECT product_id, cost_roll_ex_mill_type_id, 5, cost_roll_ex_mill
+FROM T_PRODUCT_PRICE_COST_COPY
+WHERE cost_roll_ex_mill IS NOT NULL;
+

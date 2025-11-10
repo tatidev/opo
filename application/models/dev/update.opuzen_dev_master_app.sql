@@ -1,0 +1,351 @@
+
+TRUNCATE opuzen_dev_master_app.P_ABRASION_LIMIT;
+INSERT INTO opuzen_dev_master_app.P_ABRASION_LIMIT
+SELECT * FROM opuzen_prod_master_app.P_ABRASION_LIMIT;
+
+TRUNCATE opuzen_dev_master_app.P_ABRASION_TEST;
+INSERT INTO opuzen_dev_master_app.P_ABRASION_TEST
+SELECT * FROM opuzen_prod_master_app.P_ABRASION_TEST;
+
+TRUNCATE opuzen_dev_master_app.P_CATEGORY_FILES;
+INSERT INTO opuzen_dev_master_app.P_CATEGORY_FILES
+SELECT * FROM opuzen_prod_master_app.P_CATEGORY_FILES;
+
+TRUNCATE opuzen_dev_master_app.P_CATEGORY_LISTS;
+INSERT INTO opuzen_dev_master_app.P_CATEGORY_LISTS
+SELECT * FROM opuzen_prod_master_app.P_CATEGORY_LISTS;
+
+TRUNCATE opuzen_dev_master_app.P_CLEANING;
+INSERT INTO opuzen_dev_master_app.P_CLEANING
+SELECT * FROM opuzen_prod_master_app.P_CLEANING;
+
+TRUNCATE opuzen_dev_master_app.P_COLOR;
+INSERT INTO opuzen_dev_master_app.P_COLOR
+SELECT * FROM opuzen_prod_master_app.P_COLOR;
+
+TRUNCATE opuzen_dev_master_app.P_CONTENT;
+INSERT INTO opuzen_dev_master_app.P_CONTENT
+SELECT * FROM opuzen_prod_master_app.P_CONTENT;
+
+TRUNCATE opuzen_dev_master_app.P_FINISH;
+INSERT INTO opuzen_dev_master_app.P_FINISH
+SELECT * FROM opuzen_prod_master_app.P_FINISH;
+
+TRUNCATE opuzen_dev_master_app.P_FIRECODE_TEST;
+INSERT INTO opuzen_dev_master_app.P_FIRECODE_TEST
+SELECT * FROM opuzen_prod_master_app.P_FIRECODE_TEST;
+
+TRUNCATE opuzen_dev_master_app.P_ORIGIN;
+INSERT INTO opuzen_dev_master_app.P_ORIGIN
+SELECT * FROM opuzen_prod_master_app.P_ORIGIN;
+
+TRUNCATE opuzen_dev_master_app.P_PRICE_PROGRAM;
+INSERT INTO opuzen_dev_master_app.P_PRICE_PROGRAM
+SELECT * FROM opuzen_prod_master_app.P_PRICE_PROGRAM;
+
+TRUNCATE opuzen_dev_master_app.P_PRICE_TYPE;
+INSERT INTO opuzen_dev_master_app.P_PRICE_TYPE
+SELECT * FROM opuzen_prod_master_app.P_PRICE_TYPE;
+
+TRUNCATE opuzen_dev_master_app.P_PRODUCT_STATUS;
+INSERT INTO opuzen_dev_master_app.P_PRODUCT_STATUS
+SELECT * FROM opuzen_prod_master_app.P_PRODUCT_STATUS;
+
+TRUNCATE opuzen_dev_master_app.P_SHELF;
+INSERT INTO opuzen_dev_master_app.P_SHELF
+SELECT * FROM opuzen_prod_master_app.P_SHELF;
+
+TRUNCATE opuzen_dev_master_app.P_STOCK_STATUS;
+INSERT INTO opuzen_dev_master_app.P_STOCK_STATUS
+SELECT * FROM opuzen_prod_master_app.P_STOCK_STATUS;
+
+TRUNCATE opuzen_dev_master_app.P_USE;
+INSERT INTO opuzen_dev_master_app.P_USE
+SELECT * FROM opuzen_prod_master_app.P_USE;
+
+TRUNCATE opuzen_dev_master_app.P_WEAVE;
+INSERT INTO opuzen_dev_master_app.P_WEAVE
+SELECT * FROM opuzen_prod_master_app.P_WEAVE;
+
+TRUNCATE opuzen_dev_master_app.Q_LIST;
+INSERT INTO opuzen_dev_master_app.Q_LIST
+SELECT * FROM opuzen_prod_master_app.Q_LIST WHERE id = 0;
+UPDATE opuzen_dev_master_app.Q_LIST SET id = 0 WHERE id = 1;
+INSERT INTO opuzen_dev_master_app.Q_LIST
+SELECT * FROM opuzen_prod_master_app.Q_LIST WHERE id > 0;
+
+TRUNCATE opuzen_dev_master_app.Q_LIST_CATEGORY;
+INSERT INTO opuzen_dev_master_app.Q_LIST_CATEGORY
+SELECT * FROM opuzen_prod_master_app.Q_LIST_CATEGORY;
+
+TRUNCATE opuzen_dev_master_app.Q_LIST_ITEMS;
+INSERT INTO opuzen_dev_master_app.Q_LIST_ITEMS
+SELECT * FROM opuzen_prod_master_app.Q_LIST_ITEMS;
+
+TRUNCATE opuzen_dev_master_app.Q_LIST_SHOWROOMS;
+INSERT INTO opuzen_dev_master_app.Q_LIST_SHOWROOMS
+SELECT * FROM opuzen_prod_master_app.Q_LIST_SHOWROOMS;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_DIGITAL_STYLE;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS_COLOR;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS_COLOR
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS_COLOR;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS_COORD_COLOR;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS_COORD_COLOR
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_DIGITAL_STYLE_ITEMS_COORD_COLOR;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_PATTERNS;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_DIGITAL_STYLE_PATTERNS
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_DIGITAL_STYLE_PATTERNS;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_ITEM;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_ITEM
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_ITEM;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_ITEM_COORD_COLOR;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_ITEM_COORD_COLOR
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_ITEM_COORD_COLOR;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_PRESS;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_PRESS
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_PRESS;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_PRODUCT;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_PRODUCT
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_PRODUCT;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_PRODUCT_COLLECTION;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_PRODUCT_COLLECTION
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_PRODUCT_COLLECTION;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_PRODUCT_CONTENTS_WEB;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_PRODUCT_CONTENTS_WEB
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_PRODUCT_CONTENTS_WEB;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_PRODUCT_PATTERNS;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_PRODUCT_PATTERNS
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_PRODUCT_PATTERNS;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_P_COLLECTION;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_P_COLLECTION
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_P_COLLECTION;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_P_CONTENTS_WEB;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_P_CONTENTS_WEB
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_P_CONTENTS_WEB;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_P_COORD_COLORS;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_P_COORD_COLORS
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_P_COORD_COLORS;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_P_PATTERNS;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_P_PATTERNS
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_P_PATTERNS;
+
+TRUNCATE opuzen_dev_master_app.SHOWCASE_SCREENPRINT_STYLE;
+INSERT INTO opuzen_dev_master_app.SHOWCASE_SCREENPRINT_STYLE
+SELECT * FROM opuzen_prod_master_app.SHOWCASE_SCREENPRINT_STYLE;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_ITEM;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_ITEM
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_ITEM;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_ITEM_COLOR;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_ITEM_COLOR
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_ITEM_COLOR;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_CONTENT_BACK;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_CONTENT_BACK
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_CONTENT_BACK;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_CONTENT_FRONT;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_CONTENT_FRONT
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_CONTENT_FRONT;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_PRICE;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_PRICE
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_PRICE;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_PRICE_COST;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_PRICE_COST
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_PRICE_COST;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_VARIOUS;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_VARIOUS
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_VARIOUS;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_VENDOR;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_VENDOR
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_VENDOR;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_WEAVE;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_WEAVE
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_WEAVE;
+
+TRUNCATE opuzen_dev_master_app.S_HISTORY_PRODUCT_X_SCREENPRINT;
+INSERT INTO opuzen_dev_master_app.S_HISTORY_PRODUCT_X_SCREENPRINT
+SELECT * FROM opuzen_prod_master_app.S_HISTORY_PRODUCT_X_SCREENPRINT;
+
+TRUNCATE opuzen_dev_master_app.T_ITEM;
+INSERT INTO opuzen_dev_master_app.T_ITEM
+SELECT * FROM opuzen_prod_master_app.T_ITEM;
+
+TRUNCATE opuzen_dev_master_app.T_ITEM_COLOR;
+INSERT INTO opuzen_dev_master_app.T_ITEM_COLOR
+SELECT * FROM opuzen_prod_master_app.T_ITEM_COLOR;
+
+TRUNCATE opuzen_dev_master_app.T_ITEM_MESSAGES;
+INSERT INTO opuzen_dev_master_app.T_ITEM_MESSAGES
+SELECT * FROM opuzen_prod_master_app.T_ITEM_MESSAGES;
+
+TRUNCATE opuzen_dev_master_app.T_ITEM_SHELF;
+INSERT INTO opuzen_dev_master_app.T_ITEM_SHELF
+SELECT * FROM opuzen_prod_master_app.T_ITEM_SHELF;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_ABRASION;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_ABRASION
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_ABRASION;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_ABRASION_FILES;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_ABRASION_FILES
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_ABRASION_FILES;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_CLEANING;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_CLEANING
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_CLEANING;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_CLEANING_SPECIAL;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_CLEANING_SPECIAL
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_CLEANING_SPECIAL;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_CONTENT_BACK;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_CONTENT_BACK
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_CONTENT_BACK;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_CONTENT_FRONT;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_CONTENT_FRONT
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_CONTENT_FRONT;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_FILES;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_FILES
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_FILES;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_FINISH;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_FINISH
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_FINISH;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_FINISH_SPECIAL;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_FINISH_SPECIAL
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_FINISH_SPECIAL;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_FIRECODE;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_FIRECODE
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_FIRECODE;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_FIRECODE_FILES;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_FIRECODE_FILES
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_FIRECODE_FILES;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_MESSAGES;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_MESSAGES
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_MESSAGES;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_ORIGIN;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_ORIGIN
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_ORIGIN;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_PRICE;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_PRICE
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_PRICE;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_PRICE_COST;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_PRICE_COST
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_PRICE_COST;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_PRICE_PROGRAM;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_PRICE_PROGRAM
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_PRICE_PROGRAM;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_USE;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_USE
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_USE;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_VARIOUS;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_VARIOUS
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_VARIOUS;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_VENDOR;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_VENDOR
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_VENDOR;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_WEAVE;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_WEAVE
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_WEAVE;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_X_DIGITAL;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_X_DIGITAL
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_X_DIGITAL;
+
+TRUNCATE opuzen_dev_master_app.T_PRODUCT_X_SCREENPRINT;
+INSERT INTO opuzen_dev_master_app.T_PRODUCT_X_SCREENPRINT
+SELECT * FROM opuzen_prod_master_app.T_PRODUCT_X_SCREENPRINT;
+
+TRUNCATE opuzen_dev_master_app.U_DIGITAL_STYLE;
+INSERT INTO opuzen_dev_master_app.U_DIGITAL_STYLE
+SELECT * FROM opuzen_prod_master_app.U_DIGITAL_STYLE;
+
+TRUNCATE opuzen_dev_master_app.U_DIGITAL_STYLE_FILES;
+INSERT INTO opuzen_dev_master_app.U_DIGITAL_STYLE_FILES
+SELECT * FROM opuzen_prod_master_app.U_DIGITAL_STYLE_FILES;
+
+TRUNCATE opuzen_dev_master_app.U_DIGITAL_STYLE_MESSAGES;
+INSERT INTO opuzen_dev_master_app.U_DIGITAL_STYLE_MESSAGES
+SELECT * FROM opuzen_prod_master_app.U_DIGITAL_STYLE_MESSAGES;
+
+TRUNCATE opuzen_dev_master_app.U_SCREENPRINT_STYLE;
+INSERT INTO opuzen_dev_master_app.U_SCREENPRINT_STYLE
+SELECT * FROM opuzen_prod_master_app.U_SCREENPRINT_STYLE;
+
+TRUNCATE opuzen_dev_master_app.Z_CONTACT;
+INSERT INTO opuzen_dev_master_app.Z_CONTACT
+SELECT * FROM opuzen_prod_master_app.Z_CONTACT;
+
+TRUNCATE opuzen_dev_master_app.Z_SHOWROOM;
+INSERT INTO opuzen_dev_master_app.Z_SHOWROOM
+SELECT * FROM opuzen_prod_master_app.Z_SHOWROOM;
+
+TRUNCATE opuzen_dev_master_app.Z_SHOWROOM_CONTACT;
+INSERT INTO opuzen_dev_master_app.Z_SHOWROOM_CONTACT
+SELECT * FROM opuzen_prod_master_app.Z_SHOWROOM_CONTACT;
+
+TRUNCATE opuzen_dev_master_app.Z_SHOWROOM_FILES;
+INSERT INTO opuzen_dev_master_app.Z_SHOWROOM_FILES
+SELECT * FROM opuzen_prod_master_app.Z_SHOWROOM_FILES;
+
+TRUNCATE opuzen_dev_master_app.Z_VENDOR;
+INSERT INTO opuzen_dev_master_app.Z_VENDOR
+SELECT * FROM opuzen_prod_master_app.Z_VENDOR;
+
+TRUNCATE opuzen_dev_master_app.Z_VENDOR_CONTACT;
+INSERT INTO opuzen_dev_master_app.Z_VENDOR_CONTACT
+SELECT * FROM opuzen_prod_master_app.Z_VENDOR_CONTACT;
+
+TRUNCATE opuzen_dev_master_app.Z_VENDOR_FILES;
+INSERT INTO opuzen_dev_master_app.Z_VENDOR_FILES
+SELECT * FROM opuzen_prod_master_app.Z_VENDOR_FILES;

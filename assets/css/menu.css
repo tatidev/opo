@@ -1,0 +1,253 @@
+/* Your rules to style the menu in mobile view (collapsible mode) here... */
+
+@media (min-width: 768px) {
+	/* Switch to desktop layout
+	-----------------------------------------------
+	   These transform the menu tree from
+	   collapsible to desktop (navbar + dropdowns)
+	-----------------------------------------------*/
+	/* start... (it's not recommended editing these rules) */
+	.sm-mytheme ul {
+		position: absolute;
+		width: 16em!important;
+		padding:8px;
+	 background: rgb(191, 172, 1);
+		box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+	}
+	.sm-mytheme li {
+		float: left;
+	}
+	.sm-mytheme.sm-rtl li {
+		float: right;
+	}
+	.sm-mytheme ul li,
+	.sm-mytheme.sm-rtl ul li,
+	.sm-mytheme.sm-vertical li {
+		float: none;
+	}
+	.sm-mytheme a {
+		white-space: nowrap;
+	}
+	.sm-mytheme ul a,
+	.sm-mytheme.sm-vertical a {
+		white-space: normal;
+	}
+	.sm-mytheme .sm-nowrap> li> a,
+	.sm-mytheme .sm-nowrap> li>:not(ul) a {
+		white-space: nowrap;
+		padding: 8px;
+	}
+	
+	.sm-mytheme .sm-nowrap> li> a:hover,
+	.sm-mytheme .sm-nowrap> li>:not(ul) a:hover {
+		border: 1px solid white;
+	}
+	
+	/* ...end */
+	/* Your rules to style the menu in desktop view here... */
+}
+
+.main-menu-btn {
+	position: relative;
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	text-indent: 28px;
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+/* hamburger icon */
+
+.main-menu-btn-icon,
+.main-menu-btn-icon:before,
+.main-menu-btn-icon:after {
+	position: absolute;
+	top: 50%;
+	left: 2px;
+	height: 2px;
+	width: 24px;
+	background: #bbb;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+}
+
+.main-menu-btn-icon:before {
+	content: '';
+	top: -7px;
+	left: 0;
+}
+
+.main-menu-btn-icon:after {
+	content: '';
+	top: 7px;
+	left: 0;
+}
+
+
+/* x icon */
+
+#main-menu-state:checked~ .main-menu-btn .main-menu-btn-icon {
+	height: 0;
+	background: transparent;
+}
+
+#main-menu-state:checked~ .main-menu-btn .main-menu-btn-icon:before {
+	top: 0;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+#main-menu-state:checked~ .main-menu-btn .main-menu-btn-icon:after {
+	top: 0;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+
+/* hide menu state checkbox (keep it visible to screen readers) */
+
+#main-menu-state {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/* hide the menu in mobile view */
+
+#main-menu-state:not(:checked)~ #main-menu {
+	display: none;
+}
+
+#main-menu-state:checked~ #main-menu {
+	display: block;
+}
+
+@media (min-width: 768px) {
+	/* hide the button in desktop view */
+	.main-menu-btn {
+		position: absolute;
+		top: -99999px;
+	}
+	/* always show the menu in desktop view */
+	#main-menu-state:not(:checked)~ #main-menu {
+		display: block;
+	}
+}
+
+
+/*
+	ADD-ONS
+*/
+
+#main-menu {
+	/*position: fixed;*/
+	z-index: 500;
+	border-bottom: 1px solid #bfac02;
+	text-transform: uppercase;
+	/*background-color:white;*/
+}
+
+.menu-item {
+	color: black;
+	/*background: white;*/
+	padding: 0.5em 16.99px;
+}
+
+.menu-item-sub {
+	color: white!important;
+	background: #bfac02;
+	padding: 0.5em 1em;
+}
+
+.menu-item,
+.menu-item-sub {
+	font-size: 14px;
+}
+
+.menu-item-sub:hover,
+.highlighted {
+	background: #AD9C03!important;
+	color: white!important;
+}
+
+.menu-item:hover,
+.highlighted,
+.menu-selected,
+.menu-selected-perm,
+.menu-item:hover.highlighted {
+    background: rgba(204, 204, 204, 0.28)!important;
+    color: black!important;
+    text-decoration: none;
+}
+
+.menu-item-sub.has-submenu:after {
+	content: "\f0d7 ";
+	display: inline-block;
+	font-family: "Font Awesome 5 Free";
+	/*font: normal normal normal 14px/1 FontAwesome;*/
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.content-container {
+	padding-top: 113px;
+}
+
+@media (max-width: 1560px) {
+	.menu-item {
+		padding: 5px 13px!important;
+	}
+
+}
+
+@media (max-width: 1450px) {
+	.menu-item {
+		padding: 4px 11px!important;
+	}
+
+}
+
+@media (max-width: 1400px) {
+	.menu-item {
+		padding: 4px 4px!important;
+	}
+}
+
+@media (max-width: 1200px) {
+	.menu-item {
+		padding: 3px 3px!important;
+	}
+}
+
+@media (max-width: 1000px) {
+	.menu-item {
+		padding: 2px 2px!important;
+	}
+}
+
+@media (max-width: 900px) {
+	.menu-item {
+		padding: 0!important;
+	}
+}
+
+@media (max-width: 736px) {
+
+	.menu-item {
+		font-size: 14px!important;
+	}
+	#main-menu {
+		position: inherit;
+	}
+}

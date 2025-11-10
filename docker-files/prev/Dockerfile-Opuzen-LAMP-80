@@ -1,0 +1,83 @@
+
+# This Dockerfile will build the docker image for you
+# Just follow these instructions.
+#
+#  Build our custom docker image.
+#  $> docker build . --file docker-files/Dockerfile-Opuzen-LAMP-80 --tag pkl4lovefineart/php56apch2:opuzen-opms
+#  $> docker build . --file docker-files/Dockerfile --tag pkl4lovefineart/php56apch2:opuzen-opms
+# 
+#  How to run this container without docker-compose.yamle
+#  $> docker run --restart unless-stopped -itd --name=php-apache-opms -p 80:80 -v "$PWD"/:/var/www/html/ pkl4lovefineart/php56apch2:opuzen
+#     docker run -d --name=php-apache-opms -p 80:80 -v "$PWD"/:/var/www/html/ pkl4lovefineart/php56apch2:opuzen-opms
+#  
+# NOTE: See the documentation related to permissions on an ubuntu host server. /docs/docker-related/container-permissions.md
+FROM ubuntu:22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update -y && \
+    apt-get install -y mysql-client && \ 
+    apt-get install -y software-properties-common apache2 git nano && \
+    add-apt-repository ppa:ondrej/php && \
+    apt-get update -y && \
+    apt-get install -y php5.6 php5.6-cli php5.6-json php5.6-common php5.6-mysql php5.6-zip php5.6-gd php5.6-mbstring php5.6-curl php5.6-xml php5.6-bcmath && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer 
+
+# Increase PHP memory limit
+RUN echo "memory_limit = -1" >> /etc/php/5.6/apache2/php.ini
+
+RUN apt-get install -y php5.6-opcache
+
+# Enable and Configure OPcache for PHP
+RUN echo 'opcache.memory_consumption=128' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.interned_strings_buffer=8' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.max_accelerated_files=4000' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.revalidate_freq=2' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.fast_shutdown=1' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.allow_url_fopen = On' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.allow_url_include = Off' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.display_errors = On' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.enable_dl = Off' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.file_uploads = On' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.max_execution_time = 30' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.max_input_time = 60' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.max_input_vars = 1000' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.memory_limit = 128M' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.post_max_size = 12M' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.session.gc_maxlifetime = 1440' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.upload_max_filesize = 2M' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.zlib.output_compression = Off' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini \
+ && echo 'opcache.enable_cli=1' >> /etc/php/5.6/apache2/conf.d/10-opcache.ini
+
+# Enable shorthand PHP tags (for Opuzen legacy code)
+RUN sed -i 's/short_open_tag = Off/short_open_tag = On/' /etc/php/5.6/apache2/php.ini
+
+# Allow htaccess files
+RUN a2enmod rewrite headers && \
+    sed -ri -e 's/^([ \t]*)(<\/VirtualHost>)/\1\tHeader set Access-Control-Allow-Origin "*"\n\1\2/g' /etc/apache2/sites-available/*.conf && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+#COPY ssl-self-signed-certs/localhost.crt /etc/ssl/certs/
+#COPY ssl-self-signed-certs/localhost.key /etc/ssl/private/
+
+# Customize the default SSL site configuration
+#RUN sed -i \
+#    -e 's,/etc/ssl/certs/ssl-cert-snakeoil.pem,/etc/ssl/certs/localhost.crt,g' \
+#    -e 's,/etc/ssl/private/ssl-cert-snakeoil.key,/etc/ssl/private/localhost.key,g' \
+#    /etc/apache2/sites-available/default-ssl.conf
+
+# Enable .htaccess files
+#RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
+
+# Enable SSL module and the default SSL site
+RUN a2enmod ssl && a2ensite default-ssl.conf
+
+# Expose port 443 for SSL
+EXPOSE 443 80 3306
+
+# Clear out pre-existing vendors (if any)
+WORKDIR /var/www/html
+#RUN rm -rf vendor/
+#COPY . /var/www/html/
+
+CMD ["apache2ctl", "-D", "FOREGROUND"]

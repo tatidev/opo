@@ -1,0 +1,1 @@
+ssh -o TCPKeepAlive=yes -o ServerAliveCountMax=20 -o ServerAliveInterval=15 -X -i /Users/ezequieldonovan/.ssh/media_temple_opuzen -L 3306:localhost:3306 root@205.186.152.193 -t

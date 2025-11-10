@@ -1,0 +1,19 @@
+
+.bc-wrapper {
+    position: relative;
+}
+
+.bc-wrapper .bc-menu{
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    display: none;
+    max-height: 164px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    line-height: 5px;
+}
+
+.input-group .bc-wrapper .bc-menu {
+    top: 38px;
+}
